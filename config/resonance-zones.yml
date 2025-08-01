@@ -1,0 +1,4 @@
+# Placeholder resonance zone configuration
+zones:
+  - name: sample
+    frequency: 528
