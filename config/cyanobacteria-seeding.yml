@@ -1,0 +1,4 @@
+# Configuration for early atmospheric seeding
+method: aerosol_dispersal
+species: cyanobacteria
+priority: high
