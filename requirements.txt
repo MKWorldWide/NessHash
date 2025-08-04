@@ -1,1 +1,14 @@
 paho-mqtt>=1.6.1  # MQTT client for actuator dispatching
+fastapi>=0.110.0
+uvicorn>=0.23.0
+pydantic>=2.0
+ics>=0.7
+dateparser>=1.2
+redis>=5.0
+fakeredis>=2.21
+google-api-python-client>=2.120
+caldav>=0.10
+msal>=1.21
+requests>=2.31
+pytest>=7.0
+httpx>=0.25
