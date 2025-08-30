@@ -1,0 +1,77 @@
+site_name: NessHash Documentation
+site_url: https://mkworldwide.github.io/NessHash/
+repo_url: https://github.com/MKWorldWide/NessHash
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.tracking
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.expand
+    - navigation.instant
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  favicon: assets/favicon.ico
+  icon:
+    logo: material/hexagon-multiple
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: timeago
+      timezone: UTC
+  - git-committers:
+      repository: MKWorldWide/NessHash
+      branch: main
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+nav:
+  - Home: index.md
+  - Architecture:
+    - Overview: architecture/overview.md
+    - Breath of the Divine: breath-of-the-divine-architecture.md
+  - Development:
+    - Setup: development/setup.md
+    - API Reference: development/api.md
+  - Contributing: CONTRIBUTING.md
+  - Changelog: CHANGELOG.md
+
+copyright: "Copyright &copy; 2024 MKWorldWide"
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/MKWorldWide/NessHash
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/MKWorldWide
+
+extra_css:
+  - css/extra.css
+
+extra_javascript:
+  - js/extra.js

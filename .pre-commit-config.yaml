@@ -1,0 +1,181 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  # Python hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: requirements-txt-fixer
+      - id: check-toml
+      - id: check-json
+      - id: check-xml
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-merge-conflict
+
+  # Python formatting
+  - repo: https://github.com/psf/black
+    rev: 23.12.1
+    hooks:
+      - id: black
+        language_version: python3
+        args: [--line-length=100]
+
+  # Python import sorting
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        name: isort (python)
+        args: [--profile=black, --line-length=100]
+
+  # Python linter
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+        additional_dependencies: [flake8-bugbear==23.11.29]
+        args: [--max-line-length=100, --ignore=E203,W503]
+
+  # Python type checking
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0
+    hooks:
+      - id: mypy
+        additional_dependencies: [types-python-dateutil, types-requests, types-pyyaml]
+        args: [--ignore-missing-imports, --disallow-untyped-defs, --disallow-incomplete-defs]
+        exclude: ^tests/
+
+  # Rust formatting
+  - repo: https://github.com/doublify-org/pre-commit-rust
+    rev: v1.0
+    hooks:
+      - id: rustfmt
+        args: [--edition=2021]
+
+  # Rust linter
+  - repo: https://github.com/doublify-org/pre-commit-rust
+    rev: v1.0
+    hooks:
+      - id: clippy
+        args: [--all-targets, -- -D warnings]
+
+  # YAML linter
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.33.0
+    hooks:
+      - id: yamllint
+        types: [yaml]
+        args: [--strict]
+
+  # Markdown linter
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.37.0
+    hooks:
+      - id: markdownlint
+        args: [--config=.markdownlint.yaml]
+
+  # Shell script formatting
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.9.0.6
+    hooks:
+      - id: shellcheck
+        args: [--severity=warning]
+
+  # TOML linter
+  - repo: https://github.com/sdras/awesome-actions/blob/master/taplo-action/taplo-action.yml
+    rev: v0.8.2
+    hooks:
+      - id: taplo
+        args: [fmt, --check]
+
+  # Check for secrets in code
+  - repo: https://github.com/awslabs/git-secrets
+    rev: 2.0.1
+    hooks:
+      - id: git-secrets
+        additional_dependencies: [git-secrets]
+        entry: git secrets --pre_commit_hook --no-provider
+        verbose: true
+
+  # Check for large files
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-added-large-files
+        args: ['--maxkb=500']
+
+  # Check for broken symlinks
+  - repo: https://github.com/ecsos/pre-commit-hooks
+    rev: v1.5.0
+    hooks:
+      - id: check-symlinks
+
+  # Check for merge conflicts
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-merge-conflict
+        exclude: ^CHANGELOG.md$
+
+  # Check for debug statements
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: debug-statements
+        language_version: python3
+
+  # Check for case conflicts in filenames
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-case-conflict
+
+  # Check for broken symlinks
+  - repo: https://github.com/ecsos/pre-commit-hooks
+    rev: v1.5.0
+    hooks:
+      - id: check-symlinks
+
+  # Check for JSON validity
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-json
+
+  # Check for XML validity
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-xml
+
+  # Check for TOML validity
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-toml
+
+  # Check for YAML validity
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-yaml
+        args: [--allow-multiple-documents, --unsafe]
+
+  # Check for files with no newline at end of file
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: end-of-file-fixer
+        exclude: 
+          - '**/*.svg'
+          - '**/*.min.js'
+          - '**/*.min.css'

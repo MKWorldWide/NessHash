@@ -1,5 +1,67 @@
-.env
-/target
-Cargo.lock
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv
+env/
+venv/
+ENV/
+.python-version
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Local development
+.venv/
+.venv*
+
+# Logs
+*.log
+
+# Local development
+.terraform/
+.terraform.lock.hcl
+
+# Project specific
+/data/resonance_logbook/
+/data/satellite_input/
+/site/

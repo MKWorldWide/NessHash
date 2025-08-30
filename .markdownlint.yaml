@@ -1,0 +1,57 @@
+# Default state for all rules
+default: true
+
+# Line length
+MD013:
+  line_length: 120
+  code_blocks: false
+  tables: false
+
+# Multiple headers with the same content
+MD024:
+  siblings_only: true
+
+# Multiple top-level headers in the same document
+MD025:
+  level: 1
+
+# Trailing spaces
+MD009:
+  br_spaces: 2
+  list_item_empty_lines: true
+
+# Trailing punctuation in header
+MD026:
+  punctuation: ".,;:!。，；：！"
+
+# Multiple spaces after blockquote symbol
+MD027: false
+
+# Ordered list item prefix
+MD029:
+  style: one_or_ordered
+
+# Spaces after list markers
+MD030:
+  ul_single: 1
+  ol_single: 1
+  ul_multi: 1
+  ol_multi: 1
+
+# Bare URLs
+MD034: false
+
+# Code block style
+MD046:
+  style: fenced
+
+# Files to exclude
+exclude_files:
+  - '**/node_modules/**'
+  - '**/bower_components/**'
+  - '**/vendor/**'
+  - '**/_site/**'
+  - '**/dist/**'
+  - '**/build/**'
+  - '**/target/**'
+  - '**/.git/**'
