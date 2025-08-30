@@ -1,0 +1,16 @@
+FROM python:3.11-slim
+
+WORKDIR /docs
+
+# Install dependencies
+RUN pip install --no-cache-dir \
+    mkdocs \
+    mkdocs-material \
+    mkdocs-git-revision-date-localized-plugin \
+    mkdocs-git-committers-plugin-2
+
+# Expose the port the app runs on
+EXPOSE 8000
+
+# Start the app
+CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:8000"]
